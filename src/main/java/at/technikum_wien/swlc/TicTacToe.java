@@ -14,7 +14,7 @@ public class TicTacToe {
 
         currentPlayer = player1;
 
-        board = new Board;
+        board = new Board();
     }
 
     public void start(){
@@ -25,31 +25,31 @@ public class TicTacToe {
         System.out.println("Current player: " + currentPlayer.getMarker());
 
         System.out.println("row(0-2): ");
-        int row = scanner.nextInt;
+        int row = sc.nextInt();
 
         System.out.println("column(0-2): ");
-        int column = scanner.nextInt;
+        int column = sc.nextInt();
 
         if(board.isCellEmpty(row, column)){
             board.place(row, column, currentPlayer.getMarker());
         }
         else {
-            System.out.printl("Choose another cell, already occupied!")
+            System.out.println("Choose another cell, already occupied!");
         }
         board.print();
         sc.close();
     }
 
 
-    public void switchCurrentPlayer(){
-        if(current == player1){
-            currentPlayer == player2;
+    private void switchCurrentPlayer(){
+        if(currentPlayer == player1){
+            currentPlayer = player2;
         } else{
             currentPlayer = player1;
         }
     }
 
-    public boolean hasWinner(){
+    private boolean hasWinner(){
         return false;
     }
 }
