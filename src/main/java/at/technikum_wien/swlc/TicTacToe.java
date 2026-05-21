@@ -20,7 +20,6 @@ public class TicTacToe {
 
     public void start() {
         Scanner sc = new Scanner(System.in);
-
         while (true) {
             board.print();
             System.out.println("Current Player: " + currentPlayer.getMarker());
@@ -35,7 +34,6 @@ public class TicTacToe {
                 System.out.println("Choose another cell, already occupied!");
                 continue;
             }
-
             if (hasWinner()) {
                 board.print();
                 System.out.println("Player " + currentPlayer.getMarker() + " wins!");
@@ -47,7 +45,6 @@ public class TicTacToe {
                 break;
             }
         }
-
         switchCurrentPlayer();
         sc.close();
     }
