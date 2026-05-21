@@ -1,5 +1,6 @@
 package at.technikum_wien.swlc;
 
+
 import java.util.Scanner;
 
 public class TicTacToe {
@@ -88,7 +89,7 @@ public class TicTacToe {
         sc.close();
     }
 
-    public void switchCurrentPlayer() {
+    private void switchCurrentPlayer() {
         if (currentPlayer == player1) {
             currentPlayer = player2;
         } else {
@@ -96,31 +97,14 @@ public class TicTacToe {
         }
     }
 
-    public boolean hasWinner() {
-        char m = currentPlayer.getMarker();
-        
-        // Check rows
-        for (int i = 0; i < 3; i++) {
-            if (board.getCell(i, 0) == m && board.getCell(i, 1) == m && board.getCell(i, 2) == m) {
-                return true;
-            }
+    private boolean hasWinner() {
+        char[][] c = board.getCells();
+        for (int i = 0; i < 3; ++i) {
+            if (c[i][0] != ' ' && c[i][0] == c[i][1] && c[i][1] == c[i][2]) return true;
+            if (c[0][i] != ' ' && c[0][i] == c[1][i] && c[1][i] == c[2][i]) return true;
         }
-        
-        // Check columns
-        for (int j = 0; j < 3; j++) {
-            if (board.getCell(0, j) == m && board.getCell(1, j) == m && board.getCell(2, j) == m) {
-                return true;
-            }
-        }
-        
-        // Check diagonals
-        if (board.getCell(0, 0) == m && board.getCell(1, 1) == m && board.getCell(2, 2) == m) {
-            return true;
-        }
-        if (board.getCell(0, 2) == m && board.getCell(1, 1) == m && board.getCell(2, 0) == m) {
-            return true;
-        }
-        
+        if (c[0][0] != ' ' && c[0][0] == c[1][1] && c[1][1] == c[2][2]) return true;
+        if (c[0][2] != ' ' && c[0][2] == c[1][1] && c[1][1] == c[2][0]) return true;
         return false;
     }
 }
