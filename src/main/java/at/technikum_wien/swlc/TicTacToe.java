@@ -44,8 +44,8 @@ public class TicTacToe {
                 System.out.println("It's a draw!");
                 break;
             }
+            switchCurrentPlayer();
         }
-        switchCurrentPlayer();
         sc.close();
     }
 
