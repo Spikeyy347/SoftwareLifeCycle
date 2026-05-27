@@ -2,9 +2,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "feature/**" ]                # Bei jedem Push auf jedem Branch
+    branches: [ "feature/**", "main" ]
   pull_request:
-    branches: [ "main" ]              # Bei jedem PR gegen main
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -28,3 +28,16 @@ jobs:
 
       - name: Run Tests
         run: mvn -B test --file pom.xml
+
+      - name: Build JAR
+        run: mvn -B package --file pom.xml
+
+      - name: Create Release with JAR
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: Build ${{ github.run_number }}
+          files: target/*.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
