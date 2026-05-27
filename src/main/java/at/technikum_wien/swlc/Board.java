@@ -3,7 +3,7 @@ package at.technikum_wien.swlc;
 public class Board {
     private char[][] cells;
 
-    public Board(){
+    public Board() {
         cells = new char[3][3];
         clear();
     }
@@ -17,9 +17,11 @@ public class Board {
     }
 
     public boolean isFull() {
-        for(int i=0; i < 3; ++i){
-            for(int j=0; j < 3; ++j){
-                if(cells[i][j]==' ') return false;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (cells[i][j] == ' ') {
+                    return false;
+                }
             }
         }
         return true;
@@ -30,24 +32,27 @@ public class Board {
     }
 
     public void clear() {
-        for(int i = 0; i < 3; ++i){
-            for(int j = 0; j < 3; ++j){
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
                 cells[i][j] = ' ';
             }
         }
+    }
 
+    public char getCell(int x, int y) {
+        return cells[x][y];
     }
 
     public void print() {
-        System.out.println("_______");
-        for( int i = 0 ; i<3; i++){
+        System.out.println("▁▁▁▁▁▁");
+        for (int i = 0; i < 3; i++) {
             System.out.print("|");
-            for(int j = 0; j<3; j++){
+            for (int j = 0; j < 3; j++) {
                 System.out.print(cells[i][j] + "|");
             }
             System.out.println();
         }
-        System.out.println("_______");
+        System.out.println("▔▔▔▔");
     }
 }
 
