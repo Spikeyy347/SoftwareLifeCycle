@@ -89,7 +89,7 @@ class TicTacToeTest {
     @Test
     void playSingleGame_completesWinner() {
         //positiv case: a winning game ends
-        Scanner sc = new Scanner("0\\n0\\n1\\n0\\n0\\n1\\n1\\n1\\n0\\n2\\n");
+        Scanner sc = new Scanner("0 0 1 0 0 1 1 1 0 2 0 0 0 0 0 0 0 0");
 
         assertDoesNotThrow(() -> game.playSingleGame(sc));
     }

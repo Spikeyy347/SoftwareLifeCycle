@@ -33,8 +33,9 @@ public class TicTacToe {
         System.out.println("Thanks for playing!");
         sc.close();
     }
+
     //package private für Tests
-     void playSingleGame(Scanner sc) {
+    void playSingleGame(Scanner sc) {
         board.clear();
         currentPlayer = player1;
         boolean gameEnded = false;
@@ -59,8 +60,9 @@ public class TicTacToe {
             }
         }
     }
+
     //package private für Tests
-     int[] getValidMove(Scanner sc) {
+    int[] getValidMove(Scanner sc) {
         while (true) {
             System.out.print("row (0-2): ");
             if (!sc.hasNextInt()) {
@@ -88,16 +90,18 @@ public class TicTacToe {
             }
         }
     }
+
     //package private für Tests
-     void switchCurrentPlayer() {
+    void switchCurrentPlayer() {
         if (currentPlayer == player1) {
             currentPlayer = player2;
         } else {
             currentPlayer = player1;
         }
     }
+
     //package private für Tests
-     boolean hasWinner() {
+    boolean hasWinner() {
         char[][] c = board.getCells();
         for (int i = 0; i < 3; ++i) {
             if (c[i][0] != ' ' && c[i][0] == c[i][1] && c[i][1] == c[i][2]) {
